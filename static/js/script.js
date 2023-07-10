@@ -98,3 +98,15 @@ const handlePostRequest = (animal) => {
     })
     .catch(error => console.error(error));
 };
+
+// Function to handle the DELETE request
+const handleDeleteRequest = (animalId) => {
+  fetch(`http://localhost:3000/animalsData/${animalId}`, {
+    method: 'DELETE'
+  })
+    .then(() => {
+      // Refresh the animal list by re-rendering the data
+      handleRenderFetch();
+    })
+    .catch(error => console.error(error));
+};
