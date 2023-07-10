@@ -70,3 +70,10 @@ const handleDisplay = (data) => {
   });
 };
 
+// Function to handle fetching and rendering the data
+const handleRenderFetch = () => {
+  fetch('http://localhost:3000/animalsData')
+    .then(res => res.json())
+    .then(data => handleDisplay(data))
+    .catch(error => console.error(error));
+};
