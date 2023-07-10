@@ -50,5 +50,16 @@ const handleDisplay = (data) => {
       handleDeleteRequest(animalId);
     });
 
+    editButton.addEventListener('click', () => {
+      const animalId = editButton.dataset.id;
+      const updatedAnimal = {
+        nameInput: prompt('Enter the new name:', animal.nameInput),
+        imageInput: prompt('Enter the new image URL:', animal.imageInput),
+        descriptionInput: prompt('Enter the new description:', animal.descriptionInput),
+        donations: animal.donations
+      };
+      handleEditRequest(animalId, updatedAnimal);
+    });
+
 };
 
