@@ -77,3 +77,15 @@ const handleRenderFetch = () => {
     .then(data => handleDisplay(data))
     .catch(error => console.error(error));
 };
+
+// Function to handle the POST request
+const handlePostRequest = (animal) => {
+  fetch('http://localhost:3000/animalsData', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(animal)
+  })
+
+};
