@@ -61,5 +61,12 @@ const handleDisplay = (data) => {
       handleEditRequest(animalId, updatedAnimal);
     });
 
+    donateBtn.addEventListener('click', () => {
+      const animalId = donateBtn.dataset.id;
+      handleDonateRequest(animalId);
+    });
+
+    animalList.appendChild(animalItem);
+  });
 };
 
