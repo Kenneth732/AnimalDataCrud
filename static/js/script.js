@@ -110,3 +110,19 @@ const handleDeleteRequest = (animalId) => {
     })
     .catch(error => console.error(error));
 };
+
+// Function to handle the PATCH request
+const handleEditRequest = (animalId, updatedAnimal) => {
+  fetch(`http://localhost:3000/animalsData/${animalId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedAnimal)
+  })
+    .then(() => {
+      // Refresh the animal list by re-rendering the data
+      handleRenderFetch();
+    })
+    .catch(error => console.error(error));
+};
