@@ -20,3 +20,10 @@ document.querySelector('#animal-form').addEventListener('submit', (e) => {
   handlePostRequest(newAnimal);
 });
 
+// Function to handle rendering the fetched data
+const handleDisplay = (data) => {
+  const animalList = document.querySelector('#animal-list');
+
+
+};
+
