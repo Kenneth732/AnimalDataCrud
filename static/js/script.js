@@ -126,3 +126,23 @@ const handleEditRequest = (animalId, updatedAnimal) => {
     })
     .catch(error => console.error(error));
 };
+
+// Function to handle the donation request
+const handleDonateRequest = (animalId) => {
+  fetch(`http://localhost:3000/animalsData/${animalId}`)
+    .then((res) => res.json())
+    .then((animal) => {
+      const updatedDonations = animal.donations + 10;
+
+
+    })
+    .then(() => {
+      // Refresh the animal list by re-rendering the data
+      handleRenderFetch();
+    })
+    .catch((error) => console.error(error));
+};
+
+
+// Call the handleRenderFetch function initially to display the animals
+handleRenderFetch();
