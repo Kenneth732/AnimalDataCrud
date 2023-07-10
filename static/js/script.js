@@ -87,5 +87,14 @@ const handlePostRequest = (animal) => {
     },
     body: JSON.stringify(animal)
   })
+    .then(() => {
+      // Reset the form fields
+      document.querySelector('#nameInput').value = '';
+      document.querySelector('#imageInput').value = '';
+      document.querySelector('#descriptionInput').value = '';
 
+      // Refresh the animal list by re-rendering the data
+      handleRenderFetch();
+    })
+    .catch(error => console.error(error));
 };
