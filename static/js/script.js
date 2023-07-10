@@ -45,5 +45,10 @@ const handleDisplay = (data) => {
     const editButton = animalItem.querySelector('.editBtn');
     const donateBtn = animalItem.querySelector('.donateBtn');
 
+    deleteButton.addEventListener('click', () => {
+      const animalId = deleteButton.dataset.id;
+      handleDeleteRequest(animalId);
+    });
+
 };
 
