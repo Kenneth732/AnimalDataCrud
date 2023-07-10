@@ -134,7 +134,13 @@ const handleDonateRequest = (animalId) => {
     .then((animal) => {
       const updatedDonations = animal.donations + 10;
 
-
+      return fetch(`http://localhost:3000/animalsData/${animalId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ donations: updatedDonations }),
+      });
     })
     .then(() => {
       // Refresh the animal list by re-rendering the data
