@@ -24,6 +24,22 @@ document.querySelector('#animal-form').addEventListener('submit', (e) => {
 const handleDisplay = (data) => {
   const animalList = document.querySelector('#animal-list');
 
+  // Clear any existing content
+  animalList.innerHTML = '';
+
+  // Iterate over the data and generate HTML for each animal
+  data.forEach(animal => {
+    const animalItem = document.createElement('li');
+    animalItem.classList.add('card');
+    animalItem.innerHTML = `
+      <h3>${animal.nameInput}</h3>
+      <img src="${animal.imageInput}" alt="${animal.name}">
+      <p>${animal.descriptionInput}</p>
+      <p>Donations: ${animal.donations}</p>
+      <button class="editBtn" data-id="${animal.id}">Edit</button>
+      <button class="donateBtn" data-id="${animal.id}">Donation</button>
+      <button class="deleteBtn" data-id="${animal.id}">Delete</button>
+    `;
 
 };
 
